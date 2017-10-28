@@ -17,7 +17,7 @@ class Experience {
         fileEntries.entries.forEach(function(element) {
             if(element.path == path) {
                 player.editPlayer(currentPlayer.username, currentPlayer.pizzaRolls + (parseInt(element.currentNumLines) - parseInt(element.previousNumLines))*2,
-                currentPlayer.experience + (parseFloat(element.currentScore) - parseFloat(element.previousScore))*100)
+                currentPlayer.experience + (parseFloat(element.currentScore) - parseFloat(element.previousScore))*100);
             }
         });
     }    

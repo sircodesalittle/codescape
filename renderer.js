@@ -5,14 +5,30 @@ const {ipcRenderer} = require('electron')
 const {remote} = require('electron');
 const player = require('./player.js');
 
+// Options for ways to show notifications
+// var options = [
+//     {
+//         title: "Basic Notification",
+//         body: "Short message part"
+//     },
+//     {
+//         title: "Content-Image Notification",
+//         body: "Short message plus a custom content image",
+//         icon: "Path to png"
+//     }
+// ]
+
 openFile = function() {
     ipcRenderer.send('select-folder')
 }
 
-
+// Initialize UI values
 updatePlayer()
 
+// TESTING THE NOTIFICATION FUNCTION
+notify('Test title', 'Testing the notification method');
 
+// Updates UI player info with most recent player data
 function updatePlayer() {
     var currentPlayer = player.getPlayer();
     var currentLevel = Math.floor(Math.log2(currentPlayer.experience/1000));
@@ -31,8 +47,23 @@ function updatePlayer() {
     $('#xpbar').css('width', parseInt(percentComplete) + '%')
 }
 
+// Pushes a notification to the user
+function notify(title, body) {
+    var options = [
+        {
+            title: title,
+            body: body
+        }
+    ]
+    new Notification(options[0].title, options[0]);
+}
+
 ipcRenderer.on('update-player', (event) => {
     updatePlayer();
+})
+
+ipcRenderer.on('send-notification', (event, title, msg) => {
+    notify(title, msg);
 })
 
 ipcRenderer.on('updated-watching-files', (event, arg) => {

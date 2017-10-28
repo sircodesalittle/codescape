@@ -3,6 +3,7 @@ var path = require('path')
 var extJson = require('./extensions.json')
 const { exec } = require('child_process');
 const {Experience} = require('./experience.js')
+const { Notificaton } = require('electron');
 const entries = require('./entries.js');
 const electron = require('electron')
 // Module to control application life.
@@ -46,6 +47,12 @@ function initWatcher(mainWindow) {
 
         entries.editFileEntries(path, results[0], num);
         Experience.analyzeExp(path);
+        
+        // new Notification('Title', {
+        //   body: 'Lorem Ipsum Dolor Sit Amet'
+        // });
+
+        mainWindow.webContents.send('send-notification', 'Titly Title', 'MASSAGE');
         mainWindow.webContents.send('update-player');
       });
     })
