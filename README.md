@@ -20,6 +20,7 @@
 - [ ] Create a setup page***
 - [ ] Gold trim
 - [ ] Make runescape flavored banner 
+- [ ] Level up alert
 
 ### Defects
 - [ ] Need to ignore any non *.py file

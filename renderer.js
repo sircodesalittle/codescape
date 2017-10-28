@@ -31,11 +31,20 @@ notify('Test title', 'Testing the notification method');
 // Updates UI player info with most recent player data
 function updatePlayer() {
     var currentPlayer = player.getPlayer();
+    var currentLevel = Math.floor(Math.log2(currentPlayer.experience/1000));
+    var lowxp = Math.pow(2, currentLevel) * 1000
+    var highxp = Math.pow(2, currentLevel+1) * 1000
+    
+    var num = currentPlayer.experience - lowxp;
+    var dem = highxp - lowxp;
+    var percentComplete = (num / dem) * 100
+    
+    $('#level').text('lvl ' + currentLevel);
     $('#username').text(currentPlayer.username);
-    $('#experience').text(currentPlayer.experience);
     $('#pizzarolls').text(currentPlayer.pizzaRolls);
+    $('#xpratio').text(num.toString() + "/" + dem.toString()  + " experience")
     console.log(parseInt(currentPlayer.experience) * 100 + '%');
-    $('#xpbar').css('width', parseInt(currentPlayer.experience) + '%')
+    $('#xpbar').css('width', parseInt(percentComplete) + '%')
 }
 
 // Pushes a notification to the user
