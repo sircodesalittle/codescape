@@ -1,1 +1,17 @@
+<<<<<<< HEAD
 {"entries":[{"path":"test_files/blah.py","previousScore":"9.93","currentScore":"6.67","previousNumLines":426,"currentNumLines":11},{"path":"test_files/blah.1.py","previousScore":"9.90","currentScore":"8.33","previousNumLines":426,"currentNumLines":12}]}
+=======
+<<<<<<< HEAD
+{"entries":[{"path":"test_files/blah.py","previousScore":"8.00","currentScore":"8.33","previousNumLines":23,"currentNumLines":25},{"path":"test_files/blah2.py","previousScore":0,"currentScore":"9.82","previousNumLines":0,"currentNumLines":182}]}
+=======
+<<<<<<< HEAD
+{"entries":[{"path":"test_files/blah.py","previousScore":"10.00","currentScore":"10.00","previousNumLines":18,"currentNumLines":19}]}
+=======
+<<<<<<< HEAD
+{"entries":[{"path":"test_files/blah.py","previousScore":8}]}
+=======
+{"entries":[{"path":"test_files/blah.py","previousScore":"9.09","currentScore":"9.17","previousNumLines":16,"currentNumLines":17}]}
+>>>>>>> f8f17cda18f9b6fb4519abc442c2fdc6ec9b5b17
+>>>>>>> e24842ed1b297f4482f2f87cf958c198da272dba
+>>>>>>> ce174012459d26167014a25087c4515340da1f73
+>>>>>>> 5e5613cc8bca1a73b61cdfb05cbb18a8e6d35045
