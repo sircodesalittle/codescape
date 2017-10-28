@@ -56,7 +56,7 @@ function createWindow () {
     // dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}, function(selection) {
       // watcher.add(selection);
     // });
-    watcher.add('/Users/alexanderdykstra/Documents/working/codescape/test_files/')
+    watcher.add('test_files/')
   });
   //---------------------------------------------------------------mycode
 }

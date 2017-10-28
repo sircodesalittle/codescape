@@ -1,13 +1,10 @@
 ************* Module blah
-test_files/blah.py:6: [C0303(trailing-whitespace), ] Trailing whitespace
-test_files/blah.py:7: [C0303(trailing-whitespace), ] Trailing whitespace
-test_files/blah.py:1: [C0111(missing-docstring), ] Missing module docstring
-test_files/blah.py:4: [C0111(missing-docstring), test] Missing function docstring
+test_files/blah.py:2: [C0303(trailing-whitespace), ] Trailing whitespace
 
 
 Report
 ======
-5 statements analysed.
+6 statements analysed.
 
 Statistics by type
 ------------------
@@ -15,13 +12,13 @@ Statistics by type
 +---------+-------+-----------+-----------+------------+---------+
 |type     |number |old number |difference |%documented |%badname |
 +=========+=======+===========+===========+============+=========+
-|module   |1      |1          |=          |0.00        |0.00     |
+|module   |1      |1          |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
 |class    |0      |0          |=          |0           |0        |
 +---------+-------+-----------+-----------+------------+---------+
 |method   |0      |0          |=          |0           |0        |
 +---------+-------+-----------+-----------+------------+---------+
-|function |1      |1          |=          |0.00        |0.00     |
+|function |1      |1          |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
 
 
@@ -32,13 +29,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |7      |63.64 |7        |=          |
+|code      |8      |61.54 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|docstring |0      |0.00  |0        |=          |
+|docstring |2      |15.38 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|comment   |0      |0.00  |0        |=          |
+|comment   |0      |0.00  |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|empty     |4      |36.36 |4        |=          |
+|empty     |3      |23.08 |NC       |NC         |
 +----------+-------+------+---------+-----------+
 
 
@@ -62,7 +59,7 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |4      |4        |=          |
+|convention |1      |1        |=          |
 +-----------+-------+---------+-----------+
 |refactor   |0      |0        |=          |
 +-----------+-------+---------+-----------+
@@ -79,14 +76,12 @@ Messages
 +--------------------+------------+
 |message id          |occurrences |
 +====================+============+
-|trailing-whitespace |2           |
-+--------------------+------------+
-|missing-docstring   |2           |
+|trailing-whitespace |1           |
 +--------------------+------------+
 
 
 
-
-------------------------------------------------------------------
-Your code has been rated at 2.00/10 (previous run: 2.00/10, +0.00)
+Global evaluation
+-----------------
+Your code has been rated at 8.33/10
 

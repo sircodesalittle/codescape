@@ -3,6 +3,7 @@ var path = require('path')
 var extJson = require('./extensions.json')
 const { exec } = require('child_process');
 const {Experience} = require('./experience.js')
+const entries = require('./entries.js');
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app
@@ -34,10 +35,12 @@ function initWatcher(mainWindow) {
       var type = extJson['languageIds'][fileType]
       log(type)
       mainWindow.webContents.send('notify-change', ext, fileType, type)
+      
       exec('python score.py ' + path + ' .pylintrc', (error, stdout, stdin) => {
         // TODO -> handle if error isnt empty
-        console.log(stdout);
+        console.log("STDOUT FROM PYTHON SCRIPT:\n" + stdout);
         results = stdout.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; });
+        entries.editFileEntries(path, results[0]);
         Experience.analyzeExp(results);
         mainWindow.webContents.send('update-player');
       });
