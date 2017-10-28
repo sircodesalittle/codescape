@@ -45,6 +45,8 @@ function initWatcher(mainWindow) {
         var wcReturn = require('child_process').execSync('wc -l ' + path).toString();
         var num = parseInt(wcReturn.match(/\d+/)[0]);
 
+        console.log(results[0]);
+
         entries.editFileEntries(path, results[0], num);
         Experience.analyzeExp(path);
         
