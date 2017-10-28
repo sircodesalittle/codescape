@@ -46,13 +46,8 @@ function initWatcher(mainWindow) {
         var num = parseInt(wcReturn.match(/\d+/)[0]);
 
         entries.editFileEntries(path, results[0], num);
-        Experience.analyzeExp(path);
-        
-        // new Notification('Title', {
-        //   body: 'Lorem Ipsum Dolor Sit Amet'
-        // });
-
-        mainWindow.webContents.send('send-notification', 'Titly Title', 'MASSAGE');
+        var players = Experience.analyzeExp(path);
+        mainWindow.webContents.send('send-notification', players.new.pizzaRolls - players.old.pizzaRolls, players.new.experience - players.old.experience);
         mainWindow.webContents.send('update-player');
       });
     })

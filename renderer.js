@@ -26,7 +26,7 @@ openFile = function() {
 updatePlayer()
 
 // TESTING THE NOTIFICATION FUNCTION
-notify('Test title', 'Testing the notification method');
+// notify('Test title', 'Testing the notification method');
 
 // Updates UI player info with most recent player data
 function updatePlayer() {
@@ -48,11 +48,12 @@ function updatePlayer() {
 }
 
 // Pushes a notification to the user
-function notify(title, body) {
+function notifyPlayerUpdate(pizzaRollUpdate, xpUpdate) {
     var options = [
         {
-            title: title,
-            body: body
+            title: 'CodeScape Player Updates',
+            silent: true,
+            body: pizzaRollUpdate + ' Pizza Rolls\n' + xpUpdate + ' Experience'
         }
     ]
     new Notification(options[0].title, options[0]);
@@ -62,8 +63,10 @@ ipcRenderer.on('update-player', (event) => {
     updatePlayer();
 })
 
-ipcRenderer.on('send-notification', (event, title, msg) => {
-    notify(title, msg);
+ipcRenderer.on('send-notification', (event, updatedRolls, updatedXp) => {
+    if (updatedRolls == 0 && updatedXp == 0)
+        return
+    notifyPlayerUpdate(updatedRolls, updatedXp);
 })
 
 ipcRenderer.on('updated-watching-files', (event, arg) => {

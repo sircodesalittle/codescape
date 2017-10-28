@@ -75,6 +75,8 @@ function editPlayer(usr, pr, exp) {
         pizzaRolls: pr,
         experience: exp
     }
+    if (player.experience < 1000)
+        player.experience = 1000;
     fs.writeFileSync('player.json', JSON.stringify(player), (err) => {
         if (err) throw err;
         console.log('User data file created.');
