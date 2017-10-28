@@ -2,16 +2,41 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Welcome to Codescape</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>Codescape v0.0.1</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
+    <!-- We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    and Electron <script>document.write(process.versions.electron)</script>. -->
+    <!-- <input id="directory" type="file" webkitdirectory onclick="openFile();"/> -->
+    <button id="openFile" onclick="openFile()">Select Folder</button>
+    
+    <br>
+    <b>Watched Files & Directories</b>
+    <ul id="watchedFiles"></ul>
+
+    <table id="dTable">
+      <tr>
+        <th>Extension</th>
+        <th>Identified File Type</th>
+        <th>Type</th>
+      </tr>
+    </table>
+
+    <h2>Username</h2>
+    <p id="username"></p>
+
+    <h2>Pizza Rolls</h2>
+    <p id="pizzarolls"></p>
+
+    <h2>Experience</h2>
+    <p id="experience"></p>
+
   </body>
 
+  <script> let $ = require('jquery') </script>
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')
