@@ -1,3 +1,5 @@
+************* Module blah
+test_files/blah.py:2: [C0303(trailing-whitespace), ] Trailing whitespace
 
 
 Report
@@ -27,13 +29,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |8      |61.54 |8        |=          |
+|code      |8      |61.54 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|docstring |2      |15.38 |2        |=          |
+|docstring |2      |15.38 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|comment   |0      |0.00  |0        |=          |
+|comment   |0      |0.00  |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|empty     |3      |23.08 |3        |=          |
+|empty     |3      |23.08 |NC       |NC         |
 +----------+-------+------+---------+-----------+
 
 
@@ -57,7 +59,7 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |0      |0        |=          |
+|convention |1      |1        |=          |
 +-----------+-------+---------+-----------+
 |refactor   |0      |0        |=          |
 +-----------+-------+---------+-----------+
@@ -68,7 +70,18 @@ Messages by category
 
 
 
+Messages
+--------
+
++--------------------+------------+
+|message id          |occurrences |
++====================+============+
+|trailing-whitespace |1           |
++--------------------+------------+
+
+
+
 Global evaluation
 -----------------
-Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+Your code has been rated at 8.33/10
 
