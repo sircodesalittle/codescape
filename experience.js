@@ -1,4 +1,5 @@
 const player = require('./player.js');
+const entries = require('./entries.js');
 
 
 class Experience {
@@ -8,34 +9,17 @@ class Experience {
         this.pizzaRolls = pizzaRolls;
     }
 
-    static analyzeExp(results) {
-
-        // 1 - This is the first time the file has been monitored
-        // 0 - The file has been monitored before
-        var first = 0;
-
-        // Log the results from the linter
-        if(results.length == 1) {
-            first = 1;
-            console.log(results[0]);
-        }
-        if(results.length == 3) {
-            first = 0;
-            console.log(results[0], results[1], results[2]);
-        }
+    static analyzeExp(path) {
 
         // Get a player and update experience
         var currentPlayer = player.getPlayer();
-        console.log("first: " + first);
-        if(first) {
-            console.log("SAM" + parseInt(results[0]));
-            console.log("SAM" + parseInt(results[2]));
-            player.editPlayer(currentPlayer.username, currentPlayer.pizzaRolls, currentPlayer.experience + parseInt(results[0])*100);
-        } else {
-            console.log("SAM" + parseInt(results[0]));
-            console.log("SAM" + parseInt(results[2]));
-            player.editPlayer(currentPlayer.username, currentPlayer.pizzaRolls, currentPlayer.experience + parseInt(results[2])*100);
-        }
+        var fileEntries = entries.getFileEntries();
+        fileEntries.entries.forEach(function(element) {
+            if(element.path == path) {
+                player.editPlayer(currentPlayer.username, currentPlayer.pizzaRolls + (parseInt(element.currentNumLines) - parseInt(element.previousNumLines))*2,
+                currentPlayer.experience + (parseFloat(element.currentScore) - parseFloat(element.previousScore))*100)
+            }
+        });
     }    
 }
 

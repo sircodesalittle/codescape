@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"entries":[{"path":"test_files/blah.py","previousScore":8}]}
+=======
+{"entries":[{"path":"test_files/blah.py","previousScore":"9.09","currentScore":"9.17","previousNumLines":16,"currentNumLines":17}]}
+>>>>>>> f8f17cda18f9b6fb4519abc442c2fdc6ec9b5b17

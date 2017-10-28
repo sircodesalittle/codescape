@@ -40,8 +40,12 @@ function initWatcher(mainWindow) {
         // TODO -> handle if error isnt empty
         console.log("STDOUT FROM PYTHON SCRIPT:\n" + stdout);
         results = stdout.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; });
-        entries.editFileEntries(path, results[0]);
-        Experience.analyzeExp(results);
+
+        var wcReturn = require('child_process').execSync('wc -l ' + path).toString();
+        var num = parseInt(wcReturn.match(/\d+/)[0]);
+
+        entries.editFileEntries(path, results[0], num);
+        Experience.analyzeExp(path);
         mainWindow.webContents.send('update-player');
       });
     })

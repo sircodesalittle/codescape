@@ -1,10 +1,13 @@
 var fs = require('fs');
+//var exec = require('child_process').exec;
 
-function createFileEntry(path, newScore, currentEntries) {
+function createFileEntry(path, newScore, newNumLines, currentEntries) {
     var file = {
         path: path,
         previousScore: 0,
-        currentScore: newScore
+        currentScore: newScore,
+        previousNumLines: 0,
+        currentNumLines: newNumLines
     }
     currentEntries.entries.push(file);
 }
@@ -14,7 +17,7 @@ function getFileEntries() {
     return JSON.parse(data);
 }
 
-function editFileEntries(path, newScore) {
+function editFileEntries(path, newScore, newNumLines) {
     var currentEntries = getFileEntries();
     var newEntry = true;
     
@@ -24,12 +27,14 @@ function editFileEntries(path, newScore) {
         if(element.path == path) {
             newEntry = false;
             element.previousScore = element.currentScore,
-            element.currentScore = newScore
+            element.currentScore = newScore,
+            element.previousNumLines = element.currentNumLines,
+            element.currentNumLines = newNumLines
         }
     });
 
     if(newEntry) {
-        createFileEntry(path, newScore, currentEntries);
+        createFileEntry(path, newScore, newNumLines, currentEntries);
     }
 
     console.log(currentEntries);
