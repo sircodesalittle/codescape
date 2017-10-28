@@ -36,7 +36,7 @@ function initWatcher(mainWindow) {
       mainWindow.webContents.send('notify-change', ext, fileType, type)
       exec('python score.py ' + path + ' .pylintrc', (error, stdout, stdin) => {
         // TODO -> handle if error isnt empty
-        console.log(stdout);
+        console.log("STDOUT FROM PYTHON SCRIPT:\n" + stdout);
         results = stdout.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; });
         Experience.analyzeExp(results);
         mainWindow.webContents.send('update-player');
