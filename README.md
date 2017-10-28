@@ -21,6 +21,7 @@
 - [ ] Gold trim
 - [ ] Make runescape flavored banner 
 - [ ] Level up alert
+- [ ] Persist watching files
 
 ### Defects
 - [ ] Need to ignore any non *.py file

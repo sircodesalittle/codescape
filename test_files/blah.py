@@ -1,27 +1,25 @@
 '''Module docstring as;ldkfj'''
-<<<<<<< HEAD
- 
-import os, sys 
-
-def test()
-    '''yo'''
-    print(os)  
-    print(' Hello World, my name is') 
-=======
 
 import os
+
+
+class TestClass:
+    '''Test'''
+
+    def __init__(self):
+        self.blah = 12
+
+
+def test2():
+    '''doc string'''
+    print('test')
+    return 'blah'
  
 def test():
     '''yo'''
     print(os)
-    print(' Hello World, my name is')
-    print()
-    print()
-    print()
-    print()
-    print()
-    print()
->>>>>>> f8f17cda18f9b6fb4519abc442c2fdc6ec9b5b17
+    print('test')
+
 
 if __name__ == '__main__':
     test()
