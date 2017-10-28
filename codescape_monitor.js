@@ -45,6 +45,8 @@ function initWatcher(mainWindow) {
         var wcReturn = require('child_process').execSync('wc -l ' + path).toString();
         var num = parseInt(wcReturn.match(/\d+/)[0]);
 
+        console.log(results[0]);
+
         entries.editFileEntries(path, results[0], num);
         var players = Experience.analyzeExp(path);
         mainWindow.webContents.send('send-notification', players.new.pizzaRolls - players.old.pizzaRolls, players.new.experience - players.old.experience);
