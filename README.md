@@ -18,6 +18,11 @@
 - [ ] Special events 
 - [ ] Buy double XP
 - [ ] Create a setup page***
+- [ ] Gold trim
+- [ ] Make runescape flavored banner 
+
+### Defects
+- [ ] Need to ignore any non *.py file
 
 ## To Do List
 **Backend**

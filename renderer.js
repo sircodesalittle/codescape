@@ -18,6 +18,8 @@ function updatePlayer() {
     $('#username').text(currentPlayer.username);
     $('#experience').text(currentPlayer.experience);
     $('#pizzarolls').text(currentPlayer.pizzaRolls);
+    console.log(parseInt(currentPlayer.experience) * 100 + '%');
+    $('#xpbar').css('width', parseInt(currentPlayer.experience) + '%')
 }
 
 ipcRenderer.on('update-player', (event) => {
