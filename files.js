@@ -1,6 +1,6 @@
 var fs = require('fs');
+//var exec = require('child_process').exec;
 
-// Create a new entry for a new file
 function createFileEntry(path, newScore, newNumLines, currentEntries) {
     var file = {
         path: path,

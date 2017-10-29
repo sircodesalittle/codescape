@@ -17,7 +17,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 800, height: 600, icon: 'images/icons/icon.icns'});
   
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -53,10 +53,31 @@ function createWindow () {
 
   ipcMain.on('select-folder', (event, arg) => {
     // Show the file select dialog
-    // dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}, function(selection) {
-      // watcher.add(selection);
-    // });
-    watcher.add('test_files/')
+    dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections']}, function(selection) {
+      console.log('SELECTION: ' + selection);
+      // var files = remote.getGlobal('watchedFiles')
+      // for (var key in files) {
+      //     for (index=0; index<files[key].length; index++)
+      //         fileList.append('<li>' + files[key][index] + '</li>');
+      watcher.add(selection);
+      // setTimeout(function() {
+      //   console.log(watcher);
+      //   console.log('THIS IS A LIST OF THE EXTENSIONS FOUND:');
+      //   var files = watcher._closers;
+      //   for(var key in files) {
+      //     var re = /(?:\.([^.]+))?$/;
+      //     var ext = re.exec(key)[1];
+      //     console.log(ext);
+      //     if(ext != 'py') {
+      //       delete watcher._closers[key];
+      //     }
+      //   }
+      //   global.watchedFiles = watcher.getWatched();
+      //   mainWindow.webContents.send('updated-watching-files');
+      //   console.log(watcher);
+      // }, 2000);
+    });
+    // watcher.add('test_files/')
   });
   //---------------------------------------------------------------mycode
 }

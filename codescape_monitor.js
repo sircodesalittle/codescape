@@ -37,21 +37,26 @@ function initWatcher(mainWindow) {
       log(type)
       mainWindow.webContents.send('notify-change', ext, fileType, type)
       
-      exec('python score.py ' + path + ' .pylintrc', (error, stdout, stdin) => {
-        // TODO -> handle if error isnt empty
-        console.log("STDOUT FROM PYTHON SCRIPT:\n" + stdout);
-        results = stdout.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; });
+      var re = /(?:\.([^.]+))?$/;
+      var ext = re.exec(path)[1];
+      console.log("EXTENSION FOR PATH: ." + ext);
+      if(ext == 'py') {
+        exec('python score.py ' + path + ' .pylintrc', (error, stdout, stdin) => {
+          // TODO -> handle if error isnt empty
+          console.log("STDOUT FROM PYTHON SCRIPT:\n" + stdout);
+          results = stdout.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; });
 
-        var wcReturn = require('child_process').execSync('wc -l ' + path).toString();
-        var num = parseInt(wcReturn.match(/\d+/)[0]);
+          var wcReturn = require('child_process').execSync('wc -l ' + path).toString();
+          var num = parseInt(wcReturn.match(/\d+/)[0]);
 
-        console.log(results[0]);
+          // console.log(results[0]);
 
-        entries.editFileEntries(path, results[0], num);
-        var players = Experience.analyzeExp(path);
-        mainWindow.webContents.send('send-notification', players.new.pizzaRolls - players.old.pizzaRolls, players.new.experience - players.old.experience);
-        mainWindow.webContents.send('update-player');
-      });
+          entries.editFileEntries(path, results[0], num);
+          var players = Experience.analyzeExp(path);
+          mainWindow.webContents.send('send-notification', players.new.pizzaRolls - players.old.pizzaRolls, players.new.experience - players.old.experience);
+          mainWindow.webContents.send('update-player');
+        });
+      }
     })
     .on('unlink', path => log(`File ${path} has been removed`));
 
