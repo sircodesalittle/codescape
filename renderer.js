@@ -86,3 +86,41 @@ ipcRenderer.on('notify-change', (event, ext, fileType, type) => {
     $('#dTable tr:last').after(`<tr><td>${ext}</td><td>${fileType}</td><td>${type}</td></tr>`);
 })
 
+ipcRenderer.on('level-up', (event) => {
+    fallingSnow();
+});
+function fallingSnow() {
+    
+    var $snowflakes = $(), qt = 100;
+    
+    for (var i = 0; i < qt; ++i) {
+        var $snowflake = $('<div class="snowflakes"></div>');
+        $snowflake.css({
+            'left': (Math.random() * $('#site').width()) + 'px',
+            'top': (- Math.random() * $('#site').height()) + 'px'
+        });
+        // add this snowflake to the set of snowflakes
+        $snowflakes = $snowflakes.add($snowflake);
+    }
+    $('#snowZone').prepend($snowflakes);
+
+    $snowflakes.animate({
+        top: "1000px",
+        opacity : "0",
+    }, Math.random() + 5000, function(){
+        $(this).remove();
+        // run again when all 20 snowflakes hit the floor
+        if (--qt < 1) {
+            // fallingSnow();
+        }
+    });
+}
+
+openStore = function() {
+    let modal = window.open('store.html', 'modal')
+    modal.document.write('<h1>Hello</h1>')
+};
+
+closeWindow = function() {
+    window.close()
+}

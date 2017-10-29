@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Welcome to Codescape Store</title>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .h1,
+      .h2,
+      .h3,
+      .h4,
+      .h5,
+      .h6 {
+          font-family: Courier New, Courier, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      
+      <!-- All of the Node.js APIs are available in this renderer process. -->
+      <!-- We are using Node.js <script>document.write(process.versions.node)</script>,
+      Chromium <script>document.write(process.versions.chrome)</script>,
+      and Electron <script>document.write(process.versions.electron)</script>. -->
+      <!-- <input id="directory" type="file" webkitdirectory onclick="openFile();"/> -->
+      
+      
+      <div class="row">
+        <img src="images/pizza_roll.png" width="100px" height="100px">
+        <img src="images/pizza_roll.png" width="100px" height="100px">
+        <img src="images/pizza_roll.png" width="100px" height="100px">
+        <h1>Pizza Roll Exchange</h1>
+        <button class="btn btn-success" onClick="closeWindow()">Close</button>
+      </div>
+    
+  </body>
+
+  
+  <script> let $ = require('jquery') </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+</html>

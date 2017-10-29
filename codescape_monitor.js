@@ -51,6 +51,10 @@ function initWatcher(mainWindow) {
         var players = Experience.analyzeExp(path);
         mainWindow.webContents.send('send-notification', players.new.pizzaRolls - players.old.pizzaRolls, players.new.experience - players.old.experience);
         mainWindow.webContents.send('update-player');
+        var newLevel = Math.floor(Math.log2(players.new.experience/1000));
+        var oldLevel = Math.floor(Math.log2(players.old.experience/1000));
+        if (oldLevel < newLevel) 
+          mainWindow.webContents.send('level-up');
       });
     })
     .on('unlink', path => log(`File ${path} has been removed`));

@@ -1,22 +1,10 @@
 ************* Module blah
-<<<<<<< HEAD
-test_files/blah.py:5: [C0303(trailing-whitespace), ] Trailing whitespace
-test_files/blah.py:8: [C0303(trailing-whitespace), ] Trailing whitespace
-test_files/blah.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-test_files/blah.py:4: [W0611(unused-import), ] Unused import sys
-=======
-test_files/blah.py:3: [C0410(multiple-imports), ] Multiple imports on one line (os, sys)
-test_files/blah.py:3: [W0611(unused-import), ] Unused import sys
->>>>>>> aad67c4b31371e4fdb97ae06ef6622c6db9d0161
+test_files/blah.py:6: [E0602(undefined-variable), test] Undefined variable 'os'
 
 
 Report
 ======
-<<<<<<< HEAD
-8 statements analysed.
-=======
 6 statements analysed.
->>>>>>> aad67c4b31371e4fdb97ae06ef6622c6db9d0161
 
 Statistics by type
 ------------------
@@ -41,23 +29,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-<<<<<<< HEAD
-|code      |10     |50.00 |10       |=          |
+|code      |8      |61.54 |7        |+1.00      |
 +----------+-------+------+---------+-----------+
-|docstring |2      |10.00 |2        |=          |
+|docstring |2      |15.38 |2        |=          |
 +----------+-------+------+---------+-----------+
 |comment   |0      |0.00  |0        |=          |
 +----------+-------+------+---------+-----------+
-|empty     |8      |40.00 |7        |+1.00      |
-=======
-|code      |8      |61.54 |NC       |NC         |
-+----------+-------+------+---------+-----------+
-|docstring |2      |15.38 |NC       |NC         |
-+----------+-------+------+---------+-----------+
-|comment   |0      |0.00  |NC       |NC         |
-+----------+-------+------+---------+-----------+
-|empty     |3      |23.08 |NC       |NC         |
->>>>>>> aad67c4b31371e4fdb97ae06ef6622c6db9d0161
+|empty     |3      |23.08 |3        |=          |
 +----------+-------+------+---------+-----------+
 
 
@@ -81,19 +59,13 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-<<<<<<< HEAD
-|convention |3      |3        |=          |
+|convention |0      |0        |=          |
 +-----------+-------+---------+-----------+
 |refactor   |0      |0        |=          |
-=======
-|convention |1      |1        |=          |
 +-----------+-------+---------+-----------+
-|refactor   |0      |1        |-1.00      |
->>>>>>> aad67c4b31371e4fdb97ae06ef6622c6db9d0161
+|warning    |0      |0        |=          |
 +-----------+-------+---------+-----------+
-|warning    |1      |1        |=          |
-+-----------+-------+---------+-----------+
-|error      |0      |0        |=          |
+|error      |1      |1        |=          |
 +-----------+-------+---------+-----------+
 
 
@@ -101,33 +73,15 @@ Messages by category
 Messages
 --------
 
-<<<<<<< HEAD
-+--------------------+------------+
-|message id          |occurrences |
-+====================+============+
-|trailing-whitespace |3           |
-+--------------------+------------+
-|unused-import       |1           |
-+--------------------+------------+
++-------------------+------------+
+|message id         |occurrences |
++===================+============+
+|undefined-variable |1           |
++-------------------+------------+
 
 
 
 
 ------------------------------------------------------------------
-Your code has been rated at 5.00/10 (previous run: 5.00/10, +0.00)
-=======
-+-----------------+------------+
-|message id       |occurrences |
-+=================+============+
-|unused-import    |1           |
-+-----------------+------------+
-|multiple-imports |1           |
-+-----------------+------------+
-
-
-
-Global evaluation
------------------
-Your code has been rated at 6.67/10
->>>>>>> aad67c4b31371e4fdb97ae06ef6622c6db9d0161
+Your code has been rated at 1.67/10 (previous run: 0.00/10, +1.67)
 

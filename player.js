@@ -1,57 +1,6 @@
 var fs = require('fs');
 
 
-// let instance = null;
-
-// class Player{  
-//     constructor(username, pizzaRolls, experience) {
-//         if(!instance){
-//               instance = this;
-//         }
-//         this.username = username;
-//         this.pizzaRolls = pizzaRolls;
-//         this.experience = experience;
-//         fs.stat('player.json', function(err, stat) {
-//             if(err == null) {
-//                 console.log('File exists');
-//                 fs.readFile('player.json', 'utf8', function (err, data) {
-//                     if (err) throw err; // we'll not consider error handling for now
-//                     var obj = JSON.parse(data);
-//                     // player = new Player(obj.username, obj.pizzaRolls, obj.experience);
-//                     console.log(obj);
-//                     console.log(instance);
-//                     instance.experience = obj.experience;
-//                     instance.pizzaRolls = obj.pizzaRolls;
-//                     instance.username = obj.username;
-//                     console.log(obj);
-//                     console.log(instance);
-//                 });
-//             }
-//         });
-//         return instance;
-//       }
-
-//     toJSON() {
-//         return {
-//             username: this.username,
-//             pizzaRolls: this.pizzaRolls,
-//             experience: this.experience
-//         }
-//     }
-
-//     savePlayer() {
-//         fs.writeFile('player.json', JSON.stringify(this), (err) => {
-//             if (err) throw err;
-//             console.log('Player data saved.');
-//           });
-//     }
-// }
-
-// module.exports = {
-//     Player: Player
-// }
-
-
 function createPlayer(usrname) {
     var player = {
         username:  usrname,
