@@ -1,8 +1,15 @@
+************* Module blah
+test_files/blah.py:2: [C0303(trailing-whitespace), ] Trailing whitespace
+test_files/blah.py:21: [C0303(trailing-whitespace), ] Trailing whitespace
+test_files/blah.py:7: [E0602(undefined-variable), test] Undefined variable 'multiple'
+test_files/blah.py:10: [C0103(invalid-name), multiply] Invalid argument name "x"
+test_files/blah.py:10: [C0103(invalid-name), multiply] Invalid argument name "y"
+test_files/blah.py:19: [R0903(too-few-public-methods), MyClass] Too few public methods (0/2)
 
 
 Report
 ======
-12 statements analysed.
+15 statements analysed.
 
 Statistics by type
 ------------------
@@ -12,11 +19,11 @@ Statistics by type
 +=========+=======+===========+===========+============+=========+
 |module   |1      |1          |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
-|class    |0      |0          |=          |0           |0        |
+|class    |1      |1          |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
-|method   |0      |0          |=          |0           |0        |
+|method   |1      |1          |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
-|function |1      |1          |=          |100.00      |0.00     |
+|function |2      |2          |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
 
 
@@ -27,13 +34,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |14     |73.68 |NC       |NC         |
+|code      |17     |60.71 |16       |+1.00      |
 +----------+-------+------+---------+-----------+
-|docstring |2      |10.53 |NC       |NC         |
+|docstring |4      |14.29 |4        |=          |
 +----------+-------+------+---------+-----------+
-|comment   |0      |0.00  |NC       |NC         |
+|comment   |0      |0.00  |0        |=          |
 +----------+-------+------+---------+-----------+
-|empty     |3      |15.79 |NC       |NC         |
+|empty     |7      |25.00 |7        |=          |
 +----------+-------+------+---------+-----------+
 
 
@@ -57,18 +64,35 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |0      |0        |=          |
+|convention |4      |4        |=          |
 +-----------+-------+---------+-----------+
-|refactor   |0      |0        |=          |
+|refactor   |1      |1        |=          |
 +-----------+-------+---------+-----------+
 |warning    |0      |0        |=          |
 +-----------+-------+---------+-----------+
-|error      |0      |0        |=          |
+|error      |1      |1        |=          |
 +-----------+-------+---------+-----------+
 
 
 
-Global evaluation
------------------
-Your code has been rated at 10.00/10
+Messages
+--------
+
++-----------------------+------------+
+|message id             |occurrences |
++=======================+============+
+|trailing-whitespace    |2           |
++-----------------------+------------+
+|invalid-name           |2           |
++-----------------------+------------+
+|undefined-variable     |1           |
++-----------------------+------------+
+|too-few-public-methods |1           |
++-----------------------+------------+
+
+
+
+
+------------------------------------------------------------------
+Your code has been rated at 3.33/10 (previous run: 2.86/10, +0.48)
 

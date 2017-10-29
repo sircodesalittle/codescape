@@ -49,9 +49,9 @@ function updatePlayer() {
     $('#xpbar').css('width', parseInt(percentComplete) + '%')
 
 
-    $('#item1').empty().append('<img src="' + items.getImage(currentPlayer.itemSlot1) +'" width="60%" height="60%">')
-    $('#item2').empty().append('<img src="' + items.getImage(currentPlayer.itemSlot2) +'" width="60%" height="60%">')
-    $('#item3').empty().append('<img src="' + items.getImage(currentPlayer.itemSlot3) +'" width="60%" height="60%">')
+    $('#item1').empty().append('<img src="' + items.getImage(currentPlayer.itemSlot1) +'" width="100px" height="100px">')
+    $('#item2').empty().append('<img src="' + items.getImage(currentPlayer.itemSlot2) +'" width="100px" height="100px">')
+    $('#item3').empty().append('<img src="' + items.getImage(currentPlayer.itemSlot3) +'" width="100px" height="100px">')
 }
 
 // Updates the UI list of watched files
