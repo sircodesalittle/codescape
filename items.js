@@ -36,6 +36,19 @@ function getImage(key) {
     return result;
 }
 
+// Gets the entry in the dictionary representing an item
+function getItemEntry(key) {
+    var items = getItems();
+    var result = '';
+    items.entries.forEach(function(item) {
+        if (item.id == key) {
+            result = item;
+        }
+    });
+    return result;
+}
+
+
 // function chargeItem(key) {
 //     var item = getItem(key);
 //     var currentPlayer = player.getPlayer();
@@ -46,5 +59,6 @@ function getImage(key) {
 module.exports = {
     getItems: getItems,
     getItem: getItem,
-    getImage: getImage
+    getImage: getImage,
+    getItemEntry: getItemEntry
 }

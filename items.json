@@ -5,27 +5,31 @@
         "image":"images/gold_laptop.png", 
         "price":10000,
         "description":"So expensive it might be able to program itself.",
-        "id": 1
+        "id":1,
+        "multiplier":5
     },
     {
         "name":"Hot Coffee",
         "image":"images/coffee.png",
         "price":200,
         "description":"Quadruples brain activity within 10 seconds of consumption.",
-        "id": 2
+        "id":2,
+        "multiplier":2
     },
     {
         "name":"Laptop",
         "image":"images/laptop.png",
         "price":1000,
         "description":"A processor from 2008 can sometimes pull it off.",
-        "id": 3
+        "id":3,
+        "multiplier":4
     },
     {
         "name":"Red Bull",
         "image":"images/red_bull.png",
         "price":400,
         "description":"Enough caffiene to power the state of Idaho for a day.",
-        "id": 4
+        "id":4,
+        "multiplier":3
     }
 ]}

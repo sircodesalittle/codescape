@@ -2,6 +2,16 @@
     
 def test():
     '''yo'''
+<<<<<<< HEAD
+=======
+    print()
+    print()
+    print()
+    print()
+    print()
+    print()
+    print()
+>>>>>>> 4ce59e82cb8553ec6accad0e65984626268dbf20
     print('test')
     print('more test')
     multiple(8, 9)
