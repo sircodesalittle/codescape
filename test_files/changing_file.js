@@ -1,2 +1,4 @@
-Test      
+const electron = require('electron');
+
+Test        
 

@@ -4,6 +4,7 @@
 const {ipcRenderer} = require('electron')
 const {remote} = require('electron');
 const player = require('./player.js');
+const entries = require('./entries.js');
 
 // Options for ways to show notifications
 // var options = [
@@ -24,6 +25,7 @@ openFile = function() {
 
 // Initialize UI values
 updatePlayer()
+updateFileList()
 
 // TESTING THE NOTIFICATION FUNCTION
 // notify('Test title', 'Testing the notification method');
@@ -47,6 +49,20 @@ function updatePlayer() {
     $('#xpbar').css('width', parseInt(percentComplete) + '%')
 }
 
+// Updates the list of watched files
+/*
+ *
+ * THIS FUNCTION NEEDS TO BE MODIFIED SO THAT THE FILES ARE VIEWABLE IN THE UI
+ * 
+ */
+function updateFileList() {
+    console.log("DID YOU GET HERE?");
+    var currentList = entries.getFileEntries();
+    currentList.entries.forEach(function(element) {
+        console.log('ELEMENT: ' + element.path);
+    });
+}
+
 // Pushes a notification to the user
 function notifyPlayerUpdate(pizzaRollUpdate, xpUpdate) {
     var options = [
@@ -61,6 +77,8 @@ function notifyPlayerUpdate(pizzaRollUpdate, xpUpdate) {
 
 ipcRenderer.on('update-player', (event) => {
     updatePlayer();
+    // TESTING TESTING TESTING
+    //updateFileList();
 })
 
 ipcRenderer.on('send-notification', (event, updatedRolls, updatedXp) => {
@@ -75,8 +93,9 @@ ipcRenderer.on('updated-watching-files', (event, arg) => {
     fileList.empty();
     var files = remote.getGlobal('watchedFiles');
     for (var key in files) {
-        for (index=0; index<files[key].length; index++)
+        for (index=0; index<files[key].length; index++) {
             fileList.append('<li>' + files[key][index] + '</li>');
+        }
     } 
 });
 
@@ -84,7 +103,7 @@ ipcRenderer.on('notify-change', (event, ext, fileType, type) => {
     console.log(ext, fileType, type);
     console.log($('#dTable tr:last'))
     $('#dTable tr:last').after(`<tr><td>${ext}</td><td>${fileType}</td><td>${type}</td></tr>`);
-})
+});
 
 ipcRenderer.on('level-up', (event) => {
     fallingSnow();
