@@ -4,24 +4,28 @@
         "name":"Gold Laptop",
         "image":"images/gold_laptop.png", 
         "price":10000,
-        "ability":"So expensive it might be able to program itself."
+        "description":"So expensive it might be able to program itself.",
+        "id": 1
     },
     {
         "name":"Hot Coffee",
         "image":"images/coffee.png",
         "price":200,
-        "description":"Quadruples brain activity within 10 seconds of consumption."
+        "description":"Quadruples brain activity within 10 seconds of consumption.",
+        "id": 2
     },
     {
         "name":"Laptop",
         "image":"images/laptop.png",
         "price":1000,
-        "description":"A processor from 2008 can sometimes pull it off."
+        "description":"A processor from 2008 can sometimes pull it off.",
+        "id": 3
     },
     {
         "name":"Red Bull",
         "image":"images/red_bull.png",
         "price":400,
-        "description":"Enough caffiene to power the state of Idaho for a day."
+        "description":"Enough caffiene to power the state of Idaho for a day.",
+        "id": 4
     }
 ]}

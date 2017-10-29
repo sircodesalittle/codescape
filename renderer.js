@@ -5,6 +5,7 @@ const {ipcRenderer} = require('electron')
 const {remote} = require('electron');
 const player = require('./player.js');
 const entries = require('./entries.js');
+const items = require('./items.js')
 
 // Options for ways to show notifications
 // var options = [
@@ -56,7 +57,6 @@ function updatePlayer() {
  * 
  */
 function updateFileList() {
-    console.log("DID YOU GET HERE?");
     var currentList = entries.getFileEntries();
     currentList.entries.forEach(function(element) {
         console.log('ELEMENT: ' + element.path);
@@ -136,10 +136,14 @@ function fallingSnow() {
 }
 
 openStore = function() {
-    let modal = window.open('store.html', 'modal')
-    modal.document.write('<h1>Hello</h1>')
+    let modal = window.open('store.html', 'modal');
 };
 
 closeWindow = function() {
+    window.close()
+}
+
+charge = function(item) {
+    console.log(item);
     window.close()
 }

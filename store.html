@@ -40,7 +40,11 @@
         <img src="images/pizza_roll.png" width="100px" height="100px">
         <img src="images/pizza_roll.png" width="100px" height="100px">
         <h1>Pizza Roll Exchange</h1>
-        <button class="btn btn-success" onClick="closeWindow()">Close</button>
+        <button class="btn btn-success" onClick="closeWindow()">Done</button>
+
+        <div id="items">
+
+        </div>
       </div>
     
   </body>
@@ -51,5 +55,6 @@
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')
+    require('./store.js')
   </script>
 </html>

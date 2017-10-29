@@ -18,7 +18,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600, backgroundColor: '#2e2c29'})
+  mainWindow = new BrowserWindow({width: 725, height: 400, backgroundColor: '#2e2c29'})
   // mainWindow.setIcon(nativeImage.createFromPath(__dirname, 'images/icon64.png')); // This isnt working...
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
