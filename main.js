@@ -59,6 +59,12 @@ function createWindow () {
     watcher.add(element.path);
   });
 
+  // The player made a purchase in the store and was updated
+  ipcMain.on('notify-store-main', (event) => {
+    console.log('notified about store in main')
+    mainWindow.webContents.send('notify-store');
+  })
+
   // When the user wants to monitor more files
   ipcMain.on('select-folder', (event, arg) => {
     // Show the file select dialog
@@ -109,6 +115,7 @@ app.on('activate', function () {
     createWindow()
   }
 })
+
 
 
 

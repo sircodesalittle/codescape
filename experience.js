@@ -18,9 +18,9 @@ class Experience {
             if(element.path == path) {
                 var rolls = (parseInt(element.currentNumLines) - parseInt(element.previousNumLines))*2
                 if (rolls > 0) 
-                    player.editPlayer(currentPlayer.username, currentPlayer.pizzaRolls + rolls, currentPlayer.experience + (parseFloat(element.currentScore) - parseFloat(element.previousScore))*100);
+                    player.editPlayer(currentPlayer.username, currentPlayer.pizzaRolls + rolls, currentPlayer.experience + (parseFloat(element.currentScore) - parseFloat(element.previousScore))*100, currentPlayer.itemSlot1, currentPlayer.itemSlot2, currentPlayer.itemSlot3);
                 else
-                    player.editPlayer(currentPlayer.username, currentPlayer.pizzaRolls, currentPlayer.experience + (parseFloat(element.currentScore) - parseFloat(element.previousScore))*100);
+                    player.editPlayer(currentPlayer.username, currentPlayer.pizzaRolls, currentPlayer.experience + (parseFloat(element.currentScore) - parseFloat(element.previousScore))*100, currentPlayer.itemSlot1, currentPlayer.itemSlot2, currentPlayer.itemSlot3);
             }
         });
         return {old: currentPlayer, new: player.getPlayer()};
