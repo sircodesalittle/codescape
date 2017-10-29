@@ -51,14 +51,18 @@ function initWatcher(mainWindow) {
 
           // console.log(results[0]);
 
-        entries.editFileEntries(path, results[0], num);
-        var players = Experience.analyzeExp(path);
-        mainWindow.webContents.send('send-notification', players.new.pizzaRolls - players.old.pizzaRolls, players.new.experience - players.old.experience);
-        mainWindow.webContents.send('update-player');
-        var newLevel = Math.floor(Math.log2(players.new.experience/1000));
-        var oldLevel = Math.floor(Math.log2(players.old.experience/1000));
-        if (oldLevel < newLevel) 
-          mainWindow.webContents.send('level-up');
+          entries.editFileEntries(path, results[0], num);
+          var players = Experience.analyzeExp(path);
+          mainWindow.webContents.send('send-notification', players.new.pizzaRolls - players.old.pizzaRolls, players.new.experience - players.old.experience);       
+          mainWindow.webContents.send('update-player');
+          var newLevel = Math.floor(Math.log2(players.new.experience/1000));
+
+          var oldLevel = Math.floor(Math.log2(players.old.experience/1000));
+          if (oldLevel < newLevel) {
+            mainWindow.webContents.send('level-up');
+            mainWindow.webContents.send('send-level-up-notification', players.new.pizzaRolls - players.old.pizzaRolls, players.new.experience - players.old.experience, newLevel);            
+          }
+
         });
       }
     })

@@ -50,7 +50,7 @@ function updatePlayer() {
     $('#xpbar').css('width', parseInt(percentComplete) + '%')
 }
 
-// Updates the list of watched files
+// Updates the UI list of watched files
 /*
  *
  * THIS FUNCTION NEEDS TO BE MODIFIED SO THAT THE FILES ARE VIEWABLE IN THE UI
@@ -75,16 +75,37 @@ function notifyPlayerUpdate(pizzaRollUpdate, xpUpdate) {
     new Notification(options[0].title, options[0]);
 }
 
+// Pushes a notification to the user
+function notifyPlayerLevelUp(pizzaRollUpdate, xpUpdate, newLevel) {
+    var options = [
+        {
+            title: 'LEVEL UP!    You are now level ' + newLevel,
+            silent: true,
+            body: pizzaRollUpdate + ' Pizza Rolls\n' + xpUpdate + ' Experience'
+        }
+    ]
+    new Notification(options[0].title, options[0]);
+}
+
+// Update the player attributes and the file list
 ipcRenderer.on('update-player', (event) => {
     updatePlayer();
     // TESTING TESTING TESTING
     //updateFileList();
 })
 
+// Render a standard update notification for the application
 ipcRenderer.on('send-notification', (event, updatedRolls, updatedXp) => {
     if (updatedRolls == 0 && updatedXp == 0)
         return
     notifyPlayerUpdate(updatedRolls, updatedXp);
+})
+
+// Render a level up notification for the application
+ipcRenderer.on('send-level-up-notification', (event, updatedRolls, updatedXp, updatedLevel) => {
+    if (updatedRolls == 0 && updatedXp == 0)
+        return
+    notifyPlayerLevelUp(updatedRolls, updatedXp, updatedLevel);
 })
 
 ipcRenderer.on('updated-watching-files', (event, arg) => {
@@ -105,9 +126,12 @@ ipcRenderer.on('notify-change', (event, ext, fileType, type) => {
     $('#dTable tr:last').after(`<tr><td>${ext}</td><td>${fileType}</td><td>${type}</td></tr>`);
 });
 
+// Activate whenever the user levels up
 ipcRenderer.on('level-up', (event) => {
     fallingSnow();
 });
+
+// Pizza rolls = snow. Let it rain!
 function fallingSnow() {
     
     var $snowflakes = $(), qt = 100;

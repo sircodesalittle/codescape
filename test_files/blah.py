@@ -3,7 +3,10 @@
 
 def test():
     '''yo'''
-    print(os)
+    print()
+    print()
+    print()
+    print()
     print()
     print('test')
     print()
