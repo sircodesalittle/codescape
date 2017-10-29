@@ -10,6 +10,7 @@ const url = require('url')
 
 const monitor = require('./codescape_monitor.js');
 const player = require('./player.js')
+const entries = require('./entries.js');
 let watcher
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -52,19 +53,23 @@ function createWindow () {
     mainWindow.webContents.send('updated-watching-files')
   })
 
+  // When the program starts, watch all of the paths in the entries JSON file
+  var paths = entries.getFileEntries();
+  paths.entries.forEach(function(element) {
+    watcher.add(element.path);
+  });
+
+  // The player made a purchase in the store and was updated
   ipcMain.on('notify-store-main', (event) => {
     console.log('notified about store in main')
     mainWindow.webContents.send('notify-store');
   })
 
+  // When the user wants to monitor more files
   ipcMain.on('select-folder', (event, arg) => {
     // Show the file select dialog
     dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections']}, function(selection) {
       console.log('SELECTION: ' + selection);
-      // var files = remote.getGlobal('watchedFiles')
-      // for (var key in files) {
-      //     for (index=0; index<files[key].length; index++)
-      //         fileList.append('<li>' + files[key][index] + '</li>');
       watcher.add(selection);
       // setTimeout(function() {
       //   console.log(watcher);
@@ -85,6 +90,7 @@ function createWindow () {
     });
     // watcher.add('test_files/')
   });
+
   //---------------------------------------------------------------mycode
 }
 
