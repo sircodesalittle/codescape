@@ -1,4 +1,5 @@
 const items = require('./items.js')
+const {ipcRenderer} = require('electron')
 
 
 setupStore = function() {
@@ -20,3 +21,10 @@ setupStore = function() {
 }
 
 setupStore()
+
+
+charge = function(item) {
+    items.getItem(item);    
+    ipcRenderer.send('notify-store-main')
+    window.close()
+}

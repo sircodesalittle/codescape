@@ -52,6 +52,11 @@ function createWindow () {
     mainWindow.webContents.send('updated-watching-files')
   })
 
+  ipcMain.on('notify-store-main', (event) => {
+    console.log('notified about store in main')
+    mainWindow.webContents.send('notify-store');
+  })
+
   ipcMain.on('select-folder', (event, arg) => {
     // Show the file select dialog
     dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections']}, function(selection) {
@@ -104,6 +109,7 @@ app.on('activate', function () {
     createWindow()
   }
 })
+
 
 
 
