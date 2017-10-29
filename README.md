@@ -1,5 +1,16 @@
 # Codescape
 
+[See it in action](https://youtu.be/0o3B_MksvMk)
+
+Improve and compete at your everyday programming job
+![Alt text](demo/short_demo.gif?raw=true "Title")
+
+Level Up!
+![Alt text](demo/short_lvl_up.gif?raw=true "Title")
+
+Buy cool XP boosting items!
+![Alt text](demo/short_store.gif?raw=true "Title")
+
 ## Elevator Pitch
 Like Runescape but with less woodcutting and more coding.
 
